@@ -1,6 +1,36 @@
- {
-       "pack": {
-           "pack_format": 8,
-           "description": "Test"
-       }
-   }
+{
+  "pack": {
+    "pack_format": 48,
+    "description": {
+      "text": "GUI",
+      "extra": [
+        {
+          "text": "-",
+          "color": "yellow",
+          "bold": true,
+          "italic": false
+        },
+        {
+          "text": "LIB",
+          "color": "aqua",
+          "bold": true,
+          "italic": false
+        },
+        " ",
+        {
+          "text": "VERSION 1.0 (1.21+)",
+          "color": "white",
+          "italic": false
+        }
+      ],
+      "color": "green",
+      "italic": false
+    },
+    "supported_formats": {
+      "min_inclusive": 48,
+      "max_inclusive": 94
+    },
+    "min_format": 48,
+    "max_format": 94
+  }
+}
