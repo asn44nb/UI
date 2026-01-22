@@ -2,13 +2,12 @@
 # [System] Load-once Initializer (Single File Edition)
 # ---------------------------------------------------------
 
-# 1. HER SEFERİNDE ÇALIŞANLAR
+# 1.
+tellraw @a {"text":"[System] Datapack yükleniyor...","color":"yellow"}
 scoreboard objectives add sys dummy
-tellraw @a {"text":"[System] Datapack yüklendi","color":"yellow"}
+execute if score #loaded sys matches 1 run return run tellraw @s {"text":"DATAPACK ZATEN ETKİN!","italic":false,"bold":true,"color":"red"}
 
-# 2. SADECE İLK SEFERDE ÇALIŞANLAR (Koşul: #loaded != 1)
-# 'run function' yerine 'run execute' ile alt komutları bağlayarak tek blokta topluyoruz.
-
+# 2.
 execute unless score #loaded sys matches 1 run scoreboard objectives add ui.id dummy
 execute unless score #loaded sys matches 1 run scoreboard objectives add ui dummy
 execute unless score #loaded sys matches 1 run setblock 0 -64 0 yellow_shulker_box replace
@@ -18,6 +17,5 @@ execute unless score #loaded sys matches 1 run scoreboard players set #next ui.i
 execute unless score #loaded sys matches 1 run playsound minecraft:block.note_block.pling master @a ~ ~ ~ 1 2 1
 execute unless score #loaded sys matches 1 run tellraw @a ["",{"text":"[System] ","color":"dark_aqua"},{"text":"İlk kurulum tamamlandı! ✅","color":"green"}]
 
-# 3. KİLİT MEKANİZMASI
-# En sonda skoru 1 yapıyoruz ki yukarıdaki 'unless' komutları bir sonraki reload'da çalışmasın.
-execute unless score #loaded sys matches 1 run scoreboard players set #loaded sys 1
+# 3.
+scoreboard players set #loaded sys 1
